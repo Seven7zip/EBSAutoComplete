@@ -1,6 +1,6 @@
 function postToEBS(i, lctreSn)
 {
-    const lessonId = lctreSn.id
+    const lessonId = lctreSn
     const sbjtapplyId = window.frmStudyPlayer.sbjtapplyId.value
     const sbjtId = window.frmStudyPlayer.sbjtId.value
 
