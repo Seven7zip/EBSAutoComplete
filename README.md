@@ -5,9 +5,70 @@
 EBSi
 
 ### 스크립트
-#### EBSi
+#### 현재 재생중인 강의 완강처리
 ```js
-function postToEBS(_, lctreSn)
+function postToEBS(i, lctreSn)
+{
+    const lessonId = lctreSn
+    const sbjtapplyId = window.frmStudyPlayer.sbjtapplyId.value
+    const sbjtId = window.frmStudyPlayer.sbjtId.value
+
+    // 학습 중용 데이터
+    let value = {
+        lessonId,
+        sbjtapplyId,
+        sbjtId,
+        clntGbnCd: "C",
+        second: "1",
+        lecGbn: "V500",
+        atndGbnCd: "S",
+        ltStdTm: "1",
+        status: "0"
+    }
+
+    // 학습중으로 변경
+    jQuery.ajax(
+    {
+        type: 'POST',
+        async: false,
+        url: '/ebs/lms/lmsHist/saveLmsLessonHistDtlAjax.ebs',
+        data: value,
+        cache: false,
+        success: function()
+        {
+            console.log('Success: ' + i + "th ID:" + lessonId)
+        }
+    })
+
+    // 학습 완료용 데이터
+    value = {
+        lessonId,
+        sbjtapplyId,
+        eventType: "N"
+    }
+
+    // 학습 완료로 변경
+    jQuery.ajax(
+    {
+        type: 'POST',
+        async: false,
+        url: '/ebs/lms/lmsHist/saveLmsLessonHistCompletedAjax.ebs',
+        data: value,
+        cache: false,
+        success: function()
+        {
+            console.log('Success: ' + i + "th ID:" + lessonId)
+        }
+    })
+}
+
+
+    postToEBS(1, window.frmStudyPlayer.lessonId.value);
+
+```
+#### 범위 지정 완강처리
+```js
+function postToEBS(i, lctreSn)
 {
     const lessonId = lctreSn.id
     const sbjtapplyId = window.frmStudyPlayer.sbjtapplyId.value
@@ -36,7 +97,7 @@ function postToEBS(_, lctreSn)
         cache: false,
         success: function()
         {
-            console.log('Success: ' + lessonId)
+            console.log('Success: ' + i + 'th ID:' + lessonId)
         }
     })
 
@@ -57,7 +118,7 @@ function postToEBS(_, lctreSn)
         cache: false,
         success: function()
         {
-            console.log('Success: ' + lessonId)
+            console.log('Success: ' + i + 'th ID:' + lessonId)
         }
     })
 }
@@ -67,10 +128,9 @@ var b = Number(prompt("몇강부터 완료처리할지 입력해주세요(오리
 var c = Number(prompt("몇강까지 완료처리할지 입력해주세요", a.length))
 for (var i = b - 1; i < c; i++)
 {
-    postToEBS(i, a[i]);
+    postToEBS(i+1, a[i]);
 }
 ```
-
 ### 사용법
 1. EBS 강의 보기 페이지에 접속한다
 2. EBS 강의 보기 페이지에서 F12 또는 CTRL + SHIFT + I 를 누른다<br />
