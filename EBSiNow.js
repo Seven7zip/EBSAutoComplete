@@ -27,7 +27,7 @@ function postToEBS(i, lctreSn)
         cache: false,
         success: function()
         {
-            console.log('Success: ' + i + "th ID: + lessonId)
+            console.log('Success: ' + i + "th ID:" + lessonId)
         }
     })
 
@@ -53,10 +53,5 @@ function postToEBS(i, lctreSn)
     })
 }
 
-var a = jQuery('tbody.lessonList>tr')
-var b = Number(prompt("몇강부터 완료처리할지 입력해주세요(오리엔테이션부터 1)", "1"))
-var c = Number(prompt("몇강까지 완료처리할지 입력해주세요", a.length))
-for (var i = b - 1; i < c; i++)
-{
-    postToEBS(i+1, a[i]);
-}
+
+    postToEBS(1, window.frmStudyPlayer.lessonId.value);
