@@ -79,5 +79,5 @@ for (var i = b - 1; i < c; i++)
 2-3. 엔터키를 누른후 오류가 난다면 Issue 에 오류 내용을 첨부해주고, 완료될때 까지 기다린다 (Success 글씨가 더이상 뜨지 않을 때 까지)<br />
 2-4. 완료되었다면 새로고침을 한다.<br />
 
-> Copyright (c) PMH (pmhstudio.pmh@gmail.com)
+> Copyright (c) PMH (pmhstudio.pmh@gmail.com)<br>
 > Copyright (c) SEVENZIP (seven7ziper@gmail.com)
