@@ -69,7 +69,13 @@ function postToEBS (_, lctreSn) {
   })
 }
 
-jQuery('tbody.lessonList>tr').each(postToEBS)
+var a=jQuery('tbody.lessonList>tr')
+var b=Number(prompt("몇강부터 완료처리할지 입력해주세요(오리엔테이션부터 1)","1")
+var c=Number(prompt("몇강부터 완료처리할지 입력해주세요(오리엔테이션부터 1)",a.length.tosring())
+for(var i=b-1;i<c-1;i++)
+{
+postToEBS(i,a[i]);
+}
 ```
 
 ### 사용법
