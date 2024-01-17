@@ -27,7 +27,7 @@ function postToEBS(i, lctreSn)
         cache: false,
         success: function()
         {
-            console.log('Success: ' + i + "th ID: + lessonId)
+            console.log('Success: ' + i + 'th ID:' + lessonId)
         }
     })
 
@@ -48,7 +48,7 @@ function postToEBS(i, lctreSn)
         cache: false,
         success: function()
         {
-            console.log('Success: ' + i + "th ID:" + lessonId)
+            console.log('Success: ' + i + 'th ID:' + lessonId)
         }
     })
 }
