@@ -80,3 +80,4 @@ for (var i = b - 1; i < c; i++)
 2-4. 완료되었다면 새로고침을 한다.<br />
 
 > Copyright (c) PMH (pmhstudio.pmh@gmail.com)
+> Copyright (c) SEVENZIP (seven7ziper@gmail.com)
