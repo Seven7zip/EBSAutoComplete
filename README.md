@@ -71,8 +71,8 @@ function postToEBS (_, lctreSn) {
 
 var a=jQuery('tbody.lessonList>tr')
 var b=Number(prompt("몇강부터 완료처리할지 입력해주세요(오리엔테이션부터 1)","1"))
-var c=Number(prompt("몇강부터 완료처리할지 입력해주세요(오리엔테이션부터 1)",a.length+1))
-for(var i=b-1;i<=c-1;i++)
+var c=Number(prompt("몇강부터 완료처리할지 입력해주세요(오리엔테이션부터 1)",a.length))
+for(var i=b-1;i<c;i++)
 {
 postToEBS(i,a[i]);
 }
